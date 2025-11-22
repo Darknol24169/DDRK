@@ -1,0 +1,21 @@
+def print_hex_table(operation):
+    # Заголовок таблицы
+    header = [f"{i:X}" for i in range(1, 16)]
+    print(f"   {operation} |", *[f"{h:>2}" for h in header])
+    print("---" + "-" * (3 * 16))
+    
+    # Тело таблицы
+    for i in range(1, 16):
+        row = []
+        for j in range(1, 16):
+            if operation == '+':
+                value = i + j
+            else:  # operation == '*'
+                value = i * j
+            row.append(f"{value:X}")
+        print(f"{i:X} |", *[f"{v:>2}" for v in row])
+
+print("Таблица сложения:")
+print_hex_table('+')
+print("\nТаблица умножения:")
+print_hex_table('*')
